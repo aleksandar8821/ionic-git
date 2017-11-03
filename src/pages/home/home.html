@@ -7,12 +7,17 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+  <ion-item>
+    <ion-label color="primary">Github profile: </ion-label>
+    <ion-input placeholder="Text Input" type="text" [(ngModel)] = "profile"></ion-input>
+  </ion-item>
+  <button ion-button round (click)="show()">Show repositories</button>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-card *ngFor="let repo of repos">
+    <strong>Name: </strong>{{repo.name}}
+    <br>
+    <strong>Description: </strong>{{repo.desc}}
+  </ion-card>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
